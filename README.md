@@ -21,13 +21,13 @@ To run this application locally, follow these steps:
 1. Clone this repository to your local machine:
 
     ```bash
-   https://github.com/Atharva-5/MovieSite-Clone.git
+   https://github.com/Atharva-5/MoviesVerse.git
     ```
 
 2. Navigate to the project directory:
 
     ```bash
-    cd MovieSite-Clone
+    cd MoviesVerse
     ```
 
 3. Install the required dependencies:
