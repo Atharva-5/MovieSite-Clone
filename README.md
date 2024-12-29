@@ -6,6 +6,7 @@ Welcome to **MoviesVerse**! This is a React application that allows you to searc
 - [🚀 Features](#features)
 - [⬇️ Installation](#installation)
 - [📝 Usage](#usage)
+- [🌐 Live Demo](#livedemo)
 
 ## 🚀 Features
 
@@ -50,3 +51,6 @@ Once the app is running, you can search for movies and series by entering the ti
 
 - **Search for Movies**: Type the name of the movie or series in the search bar and hit the search button (magnifying glass).
 - **Favorites**: Click the heart icon on a movie card to add or remove it from your favorites list.
+
+## 🌐 Live Demo
+You can view a live demo of the application here: [MoviesVerse Demo](https://moviesverse-a.netlify.app/)
