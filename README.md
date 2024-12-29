@@ -3,10 +3,9 @@
 Welcome to **MoviesVerse**! This is a React application that allows you to search for movies and TV series using the OMDb API. You can browse through the search results and view detailed information about each movie or series.
 
 ## Table of Contents
-
-- [🚀 Features](#features)
-- [⬇️ Installation](#installation)
-- [📝 Usage](#usage)
+1. [🚀 Features](#features)
+2. [⬇️ Installation](#installation)
+3. [📝 Usage](#usage)
 
 ## 🚀 Features
 
