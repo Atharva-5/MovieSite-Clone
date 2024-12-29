@@ -18,8 +18,6 @@ body {
 }
 
 .app {
-    padding: 4rem;
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -29,13 +27,62 @@ body {
 h1 {
     font-size: 3rem;
     letter-spacing: 0.9px;
-    background: linear-gradient(90deg,
-            rgb(180, 222, 249) 0%,
-            rgb(198, 28, 28) 100%);
+    background: linear-gradient(180deg,
+            rgb(180, 222, 249) 20%,
+            #f39c12) 80%;
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     width: fit-content;
+}
+
+
+.navbar {
+    background-color: rgba(78, 78, 78, 0.308);
+    /* Dark background for navbar */
+    padding: 10px 20px;
+    /* Add some padding around the navbar */
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    /* Optional: Add subtle shadow */
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    /* Remove default list styling */
+    padding: 0;
+    margin: 0;
+}
+
+.nav-links li {
+    margin-right: 20px;
+    /* Space between items */
+}
+
+.nav-link {
+    color: white;
+    /* White text for links */
+    text-decoration: none;
+    /* Remove underline */
+    font-size: 18px;
+    /* Adjust font size */
+    font-weight: bold;
+    /* Optional: Make the text bold */
+    transition: color 0.3s ease;
+    /* Smooth color transition */
+}
+
+.nav-link:hover {
+    color: #f39c12;
+    /* Change link color on hover */
+}
+
+.nav-link:active {
+    color: #e67e22;
+    /* Highlight active link with a darker shade */
 }
 
 .search {
@@ -85,19 +132,38 @@ h1 {
     box-shadow: 5px 5px 7px #1c1d1f, -5px -5px 7px #222527;
 }
 
-.empty {
-    width: 100%;
-    margin-top: 3rem;
+.favorites {
+    padding: 2rem;
+    text-align: center;
+}
 
+.favorites h2 {
+    font-family: "Roboto Slab", serif;
+    color: #72fae8;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.empty {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 310px;
+    height: 460px;
+    /* Adjust based on your design needs */
+    background-color: #343739;
+    border-radius: 8px;
+    border: 2px solid #72fae8;
+    color: #f9d3b4;
+    font-family: "Raleway", sans-serif;
+    text-align: center;
+    /* padding: 1.5rem; */
 }
 
-.empty h2 {
-    font-size: 1.25rem;
+.empty h3 {
+    font-size: 1.5rem;
+    margin: 0;
     color: #f9d3b4;
-    font-family: var(--font-raleway);
 }
 
 .container {
@@ -114,30 +180,81 @@ h1 {
     width: 310px;
     height: 460px;
     margin: 1.5rem;
-
     position: relative;
     border-radius: 12px;
     overflow: hidden;
     border: none;
-
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0, 1);
     box-shadow: 0px 13px 10px -7px rgba(0, 0, 0, 0.1);
 }
 
-.movie div:nth-of-type(1) {
+.movie-header {
     position: absolute;
-    padding: 16px;
-    width: 100%;
-    opacity: 0;
     top: 0;
+    width: 100%;
+    padding: 10px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 3;
+    background: rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    /* Hidden by default */
+    transition: opacity 0.3s ease-in-out;
+    /* Smooth fade-in effect */
+}
+
+.movie-header p {
+    margin: 10px;
+    font-size: 14px;
+    font-weight: bold;
     color: #f9d3b4;
 }
 
-.movie:hover {
-    box-shadow: 10px 10px 18px -8px rgb(255, 255, 255);
-    transform: scale(1.05, 1.05);
+/* Favorite Button */
+.fav {
+    color: rgb(243, 112, 112);
+    background-color: #ffffff;
+    /* Default red background */
+    font-size: 22px;
+    box-shadow: 0px 8px 15px rgba(249, 17, 17, 0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: absolute;
+    top: 16px;
+    /* Position it from the top */
+    right: 16px;
+    /* Align it to the right */
+    z-index: 10;
+    /* Ensure it's always on top */
 }
 
+.fav.active {
+    background-color: #ff0000f0;
+    /* Light cyan when active */
+    color: #ffffff;
+    /* Red heart icon */
+    transform: scale(1.2);
+    /* Slight zoom effect when active */
+
+}
+
+.fav:hover {
+    color: #f91111;
+    background-color: white;
+    transform: scale(1.1);
+    /* Slight zoom effect on hover */
+}
+
+.fav:active {
+    transform: scale(1);
+    /* Reset zoom on click */
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.2);
+    /* Pressed effect */
+}
+
+/* Movie Image Styling */
 .movie div:nth-of-type(2) {
     width: 100%;
     height: 100%;
@@ -146,46 +263,57 @@ h1 {
 .movie div:nth-of-type(2) img {
     height: 100%;
     width: 100%;
+    transition: opacity 0.3s ease;
+    /* Fade effect on hover */
 }
 
+/* Movie Description Styling */
 .movie div:nth-of-type(3) {
     z-index: 2;
     background-color: #343739;
     padding: 16px 24px 24px 24px;
-
     position: absolute;
     bottom: 0;
     right: 0;
     left: 0;
+    transition: background-color 0.4s ease, color 0.4s ease;
 }
 
+/* Movie type (span) Styling */
 .movie div:nth-of-type(3) span {
     font-family: "Raleway", sans-serif;
     text-transform: uppercase;
     font-size: 13px;
     letter-spacing: 2px;
     font-weight: 500;
-    color: #f0f0f0;
+    color: #f9d3b4;
 }
 
+/* Movie title (h3) Styling */
 .movie div:nth-of-type(3) h3 {
     margin-top: 5px;
     font-family: "Roboto Slab", serif;
-    color: #0deacc;
+    color: #72fae8;
 }
 
+/* Hover Effects on Movie Card */
 .movie:hover div:nth-of-type(2) {
-    height: 100%;
     opacity: 0.3;
+    /* Slight fade on image */
 }
 
 .movie:hover div:nth-of-type(3) {
     background-color: transparent;
+    color: #f9d3b4;
+    /* Text color changes when hovering over the movie */
 }
 
-.movie:hover div:nth-of-type(1) {
+/* Hover effect to show header */
+.movie:hover .movie-header {
     opacity: 1;
+    /* Show movie year and header on hover */
 }
+
 
 @media screen and (max-width: 600px) {
     .app {
